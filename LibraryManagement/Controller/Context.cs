@@ -3,7 +3,7 @@ using Controller.Models;
 
 namespace Controller
 {
-    class Context : DbContext
+    public class Context : DbContext
     {
         public Context() : base("LibraryDatabase")
         {

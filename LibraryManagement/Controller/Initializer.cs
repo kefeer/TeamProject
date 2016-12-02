@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Intitalizer
+    public class Initializer
     {
         public static Context db;
 
-        static Intitalizer()
+        static Initializer()
         {
             db = new Context();
         }
-        static void Main()
+
+        public static void Main()
         {
             if (!Database.Exists("LibraryDatabase"))
                 db.Seed();

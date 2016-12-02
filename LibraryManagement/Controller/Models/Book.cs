@@ -3,7 +3,7 @@
 
 namespace Controller.Models
 {
-    class Book
+    public class Book
     {
         [Key]
         public string Name { get; set; }
@@ -11,6 +11,7 @@ namespace Controller.Models
         public string Author { get; set; }
         public string Genre { get; set; }
         public string Year { get; set; }
+        public string Department { get; set; }
         public Reader Reader { get; set; }
 
         public bool IsOutdated { get; set; }

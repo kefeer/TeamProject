@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Controller.Models
 {
-    class Reader
+    public class Reader
     {
         [Key]
         public string Name { get; set; }

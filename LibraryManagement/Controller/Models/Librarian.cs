@@ -3,7 +3,7 @@
 
 namespace Controller.Models
 {
-    class Librarian
+    public class Librarian
     {
         [Key]
         public string Name { get; set; }
