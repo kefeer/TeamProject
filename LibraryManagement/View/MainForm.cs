@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 
@@ -13,6 +6,7 @@ namespace View
 {
     public partial class MainForm : Form
     {
+        public MainForm mainForm;
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +16,7 @@ namespace View
         {
             Initializer.Main();
             ShowBooks();
+            mainForm = this;
         }
 
         private void ShowBooks()
@@ -43,6 +38,12 @@ namespace View
         private void linkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SignUpForm form = new SignUpForm();
+            form.ShowDialog();
+        }
+
+        private void linkSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignInForm form = new SignInForm(mainForm);
             form.ShowDialog();
         }
     }

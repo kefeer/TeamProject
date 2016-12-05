@@ -92,6 +92,9 @@ namespace View
                 });
             }
             Initializer.db.SaveChanges();
+            MessageBox.Show("You have successfully created a new account!\n");
+            this.Dispose();
+
         }
     }
 }

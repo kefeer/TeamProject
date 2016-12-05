@@ -34,6 +34,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,6 @@
             this.linkSignUp = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -93,6 +93,12 @@
             this.Column4.HeaderText = "Year";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Department";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // button1
             // 
@@ -168,6 +174,7 @@
             this.linkSignIn.TabIndex = 9;
             this.linkSignIn.TabStop = true;
             this.linkSignIn.Text = "Sign In";
+            this.linkSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignIn_LinkClicked);
             // 
             // linkSignUp
             // 
@@ -197,12 +204,6 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Find";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Department";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // MainForm
             // 
