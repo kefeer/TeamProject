@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Controller;
 using Controller.Models;
@@ -62,7 +63,6 @@ namespace View
                     Email = textBox5.Text,
                     Username = textBox6.Text,
                     Password = textBox7.Text
-
                 });
             }
 

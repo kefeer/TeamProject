@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Controller;
 
@@ -17,6 +18,7 @@ namespace View
             Initializer.Main();
             ShowBooks();
             mainForm = this;
+            
         }
 
         private void ShowBooks()

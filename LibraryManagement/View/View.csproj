@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReaderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReaderDetailsForm.Designer.cs">
+      <DependentUpon>ReaderDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LibrarianView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReaderDetailsForm.resx">
+      <DependentUpon>ReaderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
     </EmbeddedResource>

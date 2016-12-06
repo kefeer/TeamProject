@@ -29,17 +29,23 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.showDetailsButton = new System.Windows.Forms.Button();
+            this.addBookButton = new System.Windows.Forms.Button();
+            this.deleteBookButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.findBookButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.findReaderButton = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -47,13 +53,7 @@
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,13 +67,26 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column8});
             this.dataGridView1.Location = new System.Drawing.Point(39, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(356, 460);
+            this.dataGridView1.Size = new System.Drawing.Size(407, 460);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Surname";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // dataGridView2
             // 
@@ -86,54 +99,76 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dataGridView2.Location = new System.Drawing.Point(441, 263);
+            this.dataGridView2.Location = new System.Drawing.Point(474, 263);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 31;
-            this.dataGridView2.Size = new System.Drawing.Size(554, 460);
+            this.dataGridView2.Size = new System.Drawing.Size(930, 460);
             this.dataGridView2.TabIndex = 1;
             // 
-            // button1
+            // Column3
             // 
-            this.button1.Location = new System.Drawing.Point(39, 729);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Add reader";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Column3.HeaderText = "Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // button2
+            // Column4
             // 
-            this.button2.Location = new System.Drawing.Point(218, 729);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 45);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete reader";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Column4.HeaderText = "Author";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // button3
+            // Column5
             // 
-            this.button3.Location = new System.Drawing.Point(524, 729);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Add book";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Column5.HeaderText = "Genre";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
-            // button4
+            // Column6
             // 
-            this.button4.Location = new System.Drawing.Point(729, 729);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(198, 45);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Delete book";
-            this.button4.UseVisualStyleBackColor = true;
+            this.Column6.HeaderText = "On hands";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Outdated";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // showDetailsButton
+            // 
+            this.showDetailsButton.Location = new System.Drawing.Point(154, 729);
+            this.showDetailsButton.Name = "showDetailsButton";
+            this.showDetailsButton.Size = new System.Drawing.Size(173, 45);
+            this.showDetailsButton.TabIndex = 2;
+            this.showDetailsButton.Text = "Show details";
+            this.showDetailsButton.UseVisualStyleBackColor = true;
+            this.showDetailsButton.Click += new System.EventHandler(this.showDetailsButton_Click);
+            // 
+            // addBookButton
+            // 
+            this.addBookButton.Location = new System.Drawing.Point(755, 729);
+            this.addBookButton.Name = "addBookButton";
+            this.addBookButton.Size = new System.Drawing.Size(189, 45);
+            this.addBookButton.TabIndex = 4;
+            this.addBookButton.Text = "Add book";
+            this.addBookButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteBookButton
+            // 
+            this.deleteBookButton.Location = new System.Drawing.Point(950, 729);
+            this.deleteBookButton.Name = "deleteBookButton";
+            this.deleteBookButton.Size = new System.Drawing.Size(198, 45);
+            this.deleteBookButton.TabIndex = 5;
+            this.deleteBookButton.Text = "Delete book";
+            this.deleteBookButton.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 58);
+            this.textBox1.Location = new System.Drawing.Point(0, 58);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(433, 29);
+            this.textBox1.Size = new System.Drawing.Size(762, 29);
             this.textBox1.TabIndex = 6;
             // 
             // label1
@@ -145,14 +180,14 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Search book by:";
             // 
-            // button5
+            // findBookButton
             // 
-            this.button5.Location = new System.Drawing.Point(447, 55);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 44);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Find";
-            this.button5.UseVisualStyleBackColor = true;
+            this.findBookButton.Location = new System.Drawing.Point(768, 51);
+            this.findBookButton.Name = "findBookButton";
+            this.findBookButton.Size = new System.Drawing.Size(107, 44);
+            this.findBookButton.TabIndex = 8;
+            this.findBookButton.Text = "Find";
+            this.findBookButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -167,17 +202,17 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(3, 58);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(253, 29);
+            this.textBox2.Size = new System.Drawing.Size(286, 29);
             this.textBox2.TabIndex = 10;
             // 
-            // button6
+            // findReaderButton
             // 
-            this.button6.Location = new System.Drawing.Point(262, 55);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(86, 42);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Find";
-            this.button6.UseVisualStyleBackColor = true;
+            this.findReaderButton.Location = new System.Drawing.Point(295, 53);
+            this.findReaderButton.Name = "findReaderButton";
+            this.findReaderButton.Size = new System.Drawing.Size(113, 42);
+            this.findReaderButton.TabIndex = 11;
+            this.findReaderButton.Text = "Find";
+            this.findReaderButton.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -236,87 +271,51 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.findReaderButton);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.radioButton5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.radioButton4);
             this.panel1.Location = new System.Drawing.Point(38, 155);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(397, 102);
+            this.panel1.Size = new System.Drawing.Size(408, 102);
             this.panel1.TabIndex = 17;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.findBookButton);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.radioButton1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.radioButton3);
             this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(441, 155);
+            this.panel2.Location = new System.Drawing.Point(474, 155);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(575, 102);
+            this.panel2.Size = new System.Drawing.Size(875, 102);
             this.panel2.TabIndex = 19;
             // 
-            // Column1
+            // Column8
             // 
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Surname";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Name";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Author";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Genre";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "On hands";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Outdated";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.Column8.HeaderText = "Username";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // LibrarianView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1410, 821);
+            this.ClientSize = new System.Drawing.Size(1428, 821);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteBookButton);
+            this.Controls.Add(this.addBookButton);
+            this.Controls.Add(this.showDetailsButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "LibrarianView";
             this.Text = "LibrarianView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LibrarianView_FormClosing);
+            this.Load += new System.EventHandler(this.LibrarianView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -331,16 +330,15 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button showDetailsButton;
+        private System.Windows.Forms.Button addBookButton;
+        private System.Windows.Forms.Button deleteBookButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button findBookButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button findReaderButton;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -355,5 +353,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }
