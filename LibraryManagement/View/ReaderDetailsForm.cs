@@ -39,6 +39,7 @@ namespace View
                                                "this reader?", "Are you sure?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
                 Initializer.db.Readers.Remove(Reader);
+            Initializer.db.SaveChanges();
 
         }
 

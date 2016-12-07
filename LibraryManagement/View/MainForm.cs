@@ -34,6 +34,7 @@ namespace View
                 dataGridView1.Rows[i].Cells[2].Value = book.Genre;
                 dataGridView1.Rows[i].Cells[3].Value = book.Year;
                 dataGridView1.Rows[i].Cells[4].Value = book.Department;
+                i++;
             }
         }
 
