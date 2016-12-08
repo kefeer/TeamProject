@@ -45,8 +45,8 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.nameReaderRadio = new System.Windows.Forms.RadioButton();
+            this.surnameRadio = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,6 +152,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(762, 29);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -170,6 +171,7 @@
             this.findBookButton.TabIndex = 8;
             this.findBookButton.Text = "Find";
             this.findBookButton.UseVisualStyleBackColor = true;
+            this.findBookButton.Click += new System.EventHandler(this.findBookButton_Click);
             // 
             // label2
             // 
@@ -186,6 +188,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(286, 29);
             this.textBox2.TabIndex = 10;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // findReaderButton
             // 
@@ -195,10 +198,12 @@
             this.findReaderButton.TabIndex = 11;
             this.findReaderButton.Text = "Find";
             this.findReaderButton.UseVisualStyleBackColor = true;
+            this.findReaderButton.Click += new System.EventHandler(this.findReaderButton_Click);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(164, 15);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(89, 29);
@@ -229,35 +234,36 @@
             this.radioButton3.Text = "Genre";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // nameReaderRadio
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(167, 15);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(89, 29);
-            this.radioButton4.TabIndex = 15;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Name";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.nameReaderRadio.AutoSize = true;
+            this.nameReaderRadio.Checked = true;
+            this.nameReaderRadio.Location = new System.Drawing.Point(167, 15);
+            this.nameReaderRadio.Name = "nameReaderRadio";
+            this.nameReaderRadio.Size = new System.Drawing.Size(89, 29);
+            this.nameReaderRadio.TabIndex = 15;
+            this.nameReaderRadio.TabStop = true;
+            this.nameReaderRadio.Text = "Name";
+            this.nameReaderRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // surnameRadio
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(262, 15);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(117, 29);
-            this.radioButton5.TabIndex = 16;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Surname";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.surnameRadio.AutoSize = true;
+            this.surnameRadio.Location = new System.Drawing.Point(262, 15);
+            this.surnameRadio.Name = "surnameRadio";
+            this.surnameRadio.Size = new System.Drawing.Size(117, 29);
+            this.surnameRadio.TabIndex = 16;
+            this.surnameRadio.TabStop = true;
+            this.surnameRadio.Text = "Surname";
+            this.surnameRadio.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.findReaderButton);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.radioButton5);
+            this.panel1.Controls.Add(this.surnameRadio);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Controls.Add(this.nameReaderRadio);
             this.panel1.Location = new System.Drawing.Point(38, 155);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(408, 102);
@@ -360,8 +366,8 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton nameReaderRadio;
+        private System.Windows.Forms.RadioButton surnameRadio;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

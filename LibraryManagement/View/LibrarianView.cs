@@ -49,7 +49,6 @@ namespace View
                     dataGridView2.Rows[i].Cells[4].Value = "Yes";
                     dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
                                                            book.Reader.Surname;
-
                 }
                 else
                     dataGridView2.Rows[i].Cells[4].Value = "No";
@@ -113,6 +112,186 @@ namespace View
 
                 FillData();
             }
+        }
+
+        private void findReaderButton_Click(object sender, EventArgs e)
+        {
+            if (nameReaderRadio.Checked)
+            {
+                dataGridView1.Rows.Clear();
+                int i = 0;
+                foreach (var reader in Initializer.db.Readers)
+                {
+                    if (reader.Name.ToLower().Contains(textBox2.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[i].Cells[0].Value = reader.Name;
+                        dataGridView1.Rows[i].Cells[1].Value = reader.Surname;
+                        dataGridView1.Rows[i].Cells[2].Value = reader.Username;
+                        i++;
+                    }
+                }
+            }
+            else
+            {
+                dataGridView1.Rows.Clear();
+                int i = 0;
+                foreach (var reader in Initializer.db.Readers)
+                {
+                    if (reader.Surname.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[i].Cells[0].Value = reader.Name;
+                        dataGridView1.Rows[i].Cells[1].Value = reader.Surname;
+                        dataGridView1.Rows[i].Cells[2].Value = reader.Username;
+                        i++;
+                    }
+                }
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                dataGridView1.Rows.Clear();
+
+                int i = 0;
+                foreach (var reader in Initializer.db.Readers)
+                {
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[i].Cells[0].Value = reader.Name;
+                    dataGridView1.Rows[i].Cells[1].Value = reader.Surname;
+                    dataGridView1.Rows[i].Cells[2].Value = reader.Username;
+                    i++;
+                }
+            }
+        }
+
+        private void findBookButton_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                dataGridView2.Rows.Clear();
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    if (book.Name.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView2.Rows.Clear();
+                        dataGridView2.Rows.Add();
+                        dataGridView2.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView2.Rows[i].Cells[1].Value = book.Author;
+                        dataGridView2.Rows[i].Cells[2].Value = book.Genre;
+                        dataGridView2.Rows[i].Cells[3].Value = book.Department;
+                        if (book.IsOwned)
+                        {
+                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
+                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
+                                                           book.Reader.Surname;
+                        }
+                        else
+                            dataGridView2.Rows[i].Cells[4].Value = "No";
+                        if (book.IsOutdated)
+                            dataGridView2.Rows[i].Cells[5].Value = "Yes";
+                        else
+                            dataGridView2.Rows[i].Cells[5].Value = "No";
+                    }
+                }
+            }
+            if (radioButton2.Checked)
+            {
+                dataGridView2.Rows.Clear();
+
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    if (book.Author.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView2.Rows.Clear();
+                        dataGridView2.Rows.Add();
+                        dataGridView2.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView2.Rows[i].Cells[1].Value = book.Author;
+                        dataGridView2.Rows[i].Cells[2].Value = book.Genre;
+                        dataGridView2.Rows[i].Cells[3].Value = book.Department;
+                        if (book.IsOwned)
+                        {
+                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
+                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
+                                                           book.Reader.Surname;
+                        }
+                        else
+                            dataGridView2.Rows[i].Cells[4].Value = "No";
+                        if (book.IsOutdated)
+                            dataGridView2.Rows[i].Cells[5].Value = "Yes";
+                        else
+                            dataGridView2.Rows[i].Cells[5].Value = "No";
+                        i++;
+                    }
+                }
+            }
+            if (radioButton3.Checked)
+            {
+                dataGridView1.Rows.Clear();
+
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    if (book.Genre.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView2.Rows.Clear();
+                        dataGridView2.Rows.Add();
+                        dataGridView2.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView2.Rows[i].Cells[1].Value = book.Author;
+                        dataGridView2.Rows[i].Cells[2].Value = book.Genre;
+                        dataGridView2.Rows[i].Cells[3].Value = book.Department;
+                        if (book.IsOwned)
+                        {
+                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
+                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
+                                                           book.Reader.Surname;
+                        }
+                        else
+                            dataGridView2.Rows[i].Cells[4].Value = "No";
+                        if (book.IsOutdated)
+                            dataGridView2.Rows[i].Cells[5].Value = "Yes";
+                        else
+                            dataGridView2.Rows[i].Cells[5].Value = "No";
+                        i++;
+                    }
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                dataGridView2.Rows.Clear();
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    dataGridView2.Rows.Add();
+                    dataGridView2.Rows[i].Cells[0].Value = book.Name;
+                    dataGridView2.Rows[i].Cells[1].Value = book.Author;
+                    dataGridView2.Rows[i].Cells[2].Value = book.Genre;
+                    dataGridView2.Rows[i].Cells[3].Value = book.Department;
+                    if (book.IsOwned)
+                    {
+                        dataGridView2.Rows[i].Cells[4].Value = "Yes";
+                        dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
+                                                               book.Reader.Surname;
+                    }
+                    else
+                        dataGridView2.Rows[i].Cells[4].Value = "No";
+                    if (book.IsOutdated)
+                        dataGridView2.Rows[i].Cells[5].Value = "Yes";
+                    else
+                        dataGridView2.Rows[i].Cells[5].Value = "No";
+                    i++;
+                }
+            }
+
         }
     }
 }

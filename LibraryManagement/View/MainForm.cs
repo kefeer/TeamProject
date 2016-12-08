@@ -34,6 +34,10 @@ namespace View
                 dataGridView1.Rows[i].Cells[2].Value = book.Genre;
                 dataGridView1.Rows[i].Cells[3].Value = book.Year;
                 dataGridView1.Rows[i].Cells[4].Value = book.Department;
+                if (book.IsOwned)
+                    dataGridView1.Rows[0].Cells[5].Value = "Yes";
+                else
+                    dataGridView1.Rows[0].Cells[5].Value = "No";
                 i++;
             }
         }
@@ -48,6 +52,84 @@ namespace View
         {
             SignInForm form = new SignInForm(mainForm);
             form.ShowDialog();
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                foreach (var book in Initializer.db.Books)
+                {
+                    dataGridView1.Rows.Clear();
+                    int i  = 0;
+                    if (book.Name.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Clear();
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView1.Rows[i].Cells[1].Value = book.Author;
+                        dataGridView1.Rows[i].Cells[2].Value = book.Genre;
+                        dataGridView1.Rows[i].Cells[3].Value = book.Year;
+                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
+                        if(book.IsOwned)
+                            dataGridView1.Rows[i].Cells[5].Value = "Yes";
+                        else
+                            dataGridView1.Rows[i].Cells[5].Value = "No";
+                    }
+                }
+            }
+            if (radioButton2.Checked)
+            {
+                dataGridView1.Rows.Clear();
+
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    if (book.Author.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView1.Rows[i].Cells[1].Value = book.Genre;
+                        dataGridView1.Rows[i].Cells[2].Value = book.Author;
+                        dataGridView1.Rows[i].Cells[3].Value = book.Year;
+                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
+                        if (book.IsOwned)
+                            dataGridView1.Rows[0].Cells[5].Value = "Yes";
+                        else
+                            dataGridView1.Rows[0].Cells[5].Value = "No";
+                        i++;
+                    }
+                }
+            }
+            if (radioButton3.Checked)
+            {
+                dataGridView1.Rows.Clear();
+
+                int i = 0;
+                foreach (var book in Initializer.db.Books)
+                {
+                    if (book.Genre.ToLower().Contains(textBox1.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Add();
+                        dataGridView1.Rows[i].Cells[0].Value = book.Name;
+                        dataGridView1.Rows[i].Cells[1].Value = book.Genre;
+                        dataGridView1.Rows[i].Cells[2].Value = book.Author;
+                        dataGridView1.Rows[i].Cells[3].Value = book.Year;
+                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
+                        if (book.IsOwned)
+                            dataGridView1.Rows[0].Cells[5].Value = "Yes";
+                        else
+                            dataGridView1.Rows[0].Cells[5].Value = "No";
+                        i++;
+                    }
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+                ShowBooks();
         }
     }
 }
