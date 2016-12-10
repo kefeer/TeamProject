@@ -64,7 +64,10 @@ namespace View
                     Readers.SingleOrDefault(c => c.Username == textBox1.Text)
                     .Password == textBox2.Text)
                 {
-                    // Hide main page; Show Reader View;
+                    ReaderView readView = new ReaderView(mainForm, username);
+                    this.Visible = false;
+                    readView.Show();
+                    
                 }
                 else
                 {

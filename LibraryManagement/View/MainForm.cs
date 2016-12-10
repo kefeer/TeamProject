@@ -39,6 +39,13 @@ namespace View
                 else
                     dataGridView1.Rows[0].Cells[5].Value = "No";
                 i++;
+
+                if (book.dateMustBeReturned.Value < DateTime.Now)
+                {
+                    book.IsOutdated = true;
+                    Initializer.db.SaveChanges();
+                }
+
             }
         }
 

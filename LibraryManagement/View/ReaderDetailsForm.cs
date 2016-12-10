@@ -55,7 +55,7 @@ namespace View
         private void addBookToReaderButton_Click(object sender, EventArgs e)
         {
             AddBookToReaderForm form = new AddBookToReaderForm(Reader);
-            form.Show();
+            form.ShowDialog();
             this.Close();
         }
 
@@ -76,6 +76,7 @@ namespace View
             Reader.BooksOwned.Remove(
                 Initializer.db.Books.SingleOrDefault(c => c.Name == name));
             Initializer.db.Books.SingleOrDefault(c => c.Name == name).IsOwned = false;
+            Initializer.db.Books.SingleOrDefault(c => c.Name == name).IsOutdated = false;
             Initializer.db.SaveChanges();
 
             MessageBox.Show("The book has successfully been removed!");

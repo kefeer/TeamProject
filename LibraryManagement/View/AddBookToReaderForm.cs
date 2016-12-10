@@ -42,15 +42,15 @@ namespace View
                 {
                     case 0:
                         book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(7, 0, 0);
+                                                  new TimeSpan(7, 0, 0, 0);
                         break;
                     case 1:
                         book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(14, 0, 0);
+                                                  new TimeSpan(14, 0, 0, 0);
                         break;
                     case 2:
                         book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(21, 0, 0);
+                                                  new TimeSpan(21, 0, 0, 0);
                         break;
                 }
                 
