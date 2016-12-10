@@ -6,6 +6,10 @@ namespace Controller.Models
 {
     public class Reader
     {
+        public Reader()
+        {
+            BooksOwned = new List<Book>();
+        }
         [Key]
         public string Name { get; set; }
 

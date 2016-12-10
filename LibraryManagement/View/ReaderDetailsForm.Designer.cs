@@ -35,8 +35,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
             this.deleteReaderButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.surnameLabel = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.telephoneLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
+            this.addBookToReaderButton = new System.Windows.Forms.Button();
+            this.deleteBookButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +117,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(267, 339);
             this.dataGridView1.TabIndex = 7;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -124,17 +132,11 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Books owned: ";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // deleteReaderButton
             // 
-            this.deleteReaderButton.Location = new System.Drawing.Point(45, 378);
+            this.deleteReaderButton.Location = new System.Drawing.Point(26, 404);
             this.deleteReaderButton.Name = "deleteReaderButton";
-            this.deleteReaderButton.Size = new System.Drawing.Size(211, 62);
+            this.deleteReaderButton.Size = new System.Drawing.Size(211, 44);
             this.deleteReaderButton.TabIndex = 9;
             this.deleteReaderButton.Text = "Delete reader";
             this.deleteReaderButton.UseVisualStyleBackColor = true;
@@ -188,11 +190,33 @@
             this.usernameLabel.Size = new System.Drawing.Size(0, 25);
             this.usernameLabel.TabIndex = 15;
             // 
+            // addBookToReaderButton
+            // 
+            this.addBookToReaderButton.Location = new System.Drawing.Point(597, 404);
+            this.addBookToReaderButton.Name = "addBookToReaderButton";
+            this.addBookToReaderButton.Size = new System.Drawing.Size(132, 45);
+            this.addBookToReaderButton.TabIndex = 16;
+            this.addBookToReaderButton.Text = "Add book";
+            this.addBookToReaderButton.UseVisualStyleBackColor = true;
+            this.addBookToReaderButton.Click += new System.EventHandler(this.addBookToReaderButton_Click);
+            // 
+            // deleteBookButton
+            // 
+            this.deleteBookButton.Location = new System.Drawing.Point(739, 404);
+            this.deleteBookButton.Name = "deleteBookButton";
+            this.deleteBookButton.Size = new System.Drawing.Size(125, 45);
+            this.deleteBookButton.TabIndex = 17;
+            this.deleteBookButton.Text = "Delete book";
+            this.deleteBookButton.UseVisualStyleBackColor = true;
+            this.deleteBookButton.Click += new System.EventHandler(this.deleteBookButton_Click);
+            // 
             // ReaderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 461);
+            this.Controls.Add(this.deleteBookButton);
+            this.Controls.Add(this.addBookToReaderButton);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.telephoneLabel);
@@ -235,5 +259,7 @@
         private System.Windows.Forms.Label telephoneLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Button addBookToReaderButton;
+        private System.Windows.Forms.Button deleteBookButton;
     }
 }

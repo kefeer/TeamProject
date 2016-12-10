@@ -56,6 +56,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkAccountDelete = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -219,7 +220,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(95, 29);
             this.radioButton2.TabIndex = 13;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Author";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -230,7 +230,6 @@
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(91, 29);
             this.radioButton3.TabIndex = 14;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Genre";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
@@ -253,7 +252,6 @@
             this.surnameRadio.Name = "surnameRadio";
             this.surnameRadio.Size = new System.Drawing.Size(117, 29);
             this.surnameRadio.TabIndex = 16;
-            this.surnameRadio.TabStop = true;
             this.surnameRadio.Text = "Surname";
             this.surnameRadio.UseVisualStyleBackColor = true;
             // 
@@ -324,11 +322,23 @@
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // linkAccountDelete
+            // 
+            this.linkAccountDelete.AutoSize = true;
+            this.linkAccountDelete.Location = new System.Drawing.Point(1242, 787);
+            this.linkAccountDelete.Name = "linkAccountDelete";
+            this.linkAccountDelete.Size = new System.Drawing.Size(174, 25);
+            this.linkAccountDelete.TabIndex = 15;
+            this.linkAccountDelete.TabStop = true;
+            this.linkAccountDelete.Text = "delete this account";
+            this.linkAccountDelete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAccountDelete_LinkClicked);
+            // 
             // LibrarianView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 821);
+            this.Controls.Add(this.linkAccountDelete);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.deleteBookButton);
@@ -347,6 +357,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -380,5 +391,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.LinkLabel linkAccountDelete;
     }
 }

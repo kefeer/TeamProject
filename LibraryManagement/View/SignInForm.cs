@@ -42,7 +42,7 @@ namespace View
                 {
                     this.Dispose();
                     mainForm.Visible = false;
-                    LibrarianView libView = new LibrarianView(mainForm);
+                    LibrarianView libView = new LibrarianView(mainForm, username);
                     libView.Show();
                 }
                 else

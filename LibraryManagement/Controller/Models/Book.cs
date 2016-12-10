@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Controller.Models
@@ -16,5 +17,7 @@ namespace Controller.Models
 
         public bool IsOutdated { get; set; }
         public bool IsOwned { get; set; }
+        public DateTime? dateGiven { get; set; }
+        public DateTime? dateMustBeReturned { get; set; }
     }
 }

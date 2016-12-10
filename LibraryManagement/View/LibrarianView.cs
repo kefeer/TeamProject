@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Mail;
 using System.Windows.Forms;
 using Controller;
 using Controller.Models;
@@ -10,11 +9,13 @@ namespace View
     public partial class LibrarianView : Form
     {
         private MainForm mainForm;
+        private Librarian librarian;
 
-        public LibrarianView(MainForm mainform)
+        public LibrarianView(MainForm mainform, Librarian librarian)
         {
             InitializeComponent();
             mainForm = mainform;
+            this.librarian = librarian;
         }
 
         private void LibrarianView_Load(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace View
             {
                 MessageBox.Show("Please, select reader's row!");
             }
+            FillData();
         }
 
         private void addBookButton_Click(object sender, EventArgs e)
@@ -292,6 +294,20 @@ namespace View
                 }
             }
 
+        }
+
+        private void linkAccountDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Are you sure you want to delete " +
+                                              "your account?", "Are you sure?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Initializer.db.Librarians.Remove(librarian);
+                Initializer.db.SaveChanges();
+            }
+            MessageBox.Show("Your account has successfully been removed!");
+            this.Close();
+            mainForm.Show();
         }
     }
 }
