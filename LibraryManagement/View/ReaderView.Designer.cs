@@ -53,7 +53,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 370);
+            this.dataGridView1.Size = new System.Drawing.Size(747, 370);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -86,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(641, 75);
+            this.label2.Location = new System.Drawing.Point(931, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(248, 25);
             this.label2.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(641, 367);
+            this.label3.Location = new System.Drawing.Point(931, 359);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 25);
             this.label3.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(646, 103);
+            this.listBox1.Location = new System.Drawing.Point(936, 97);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(219, 220);
             this.listBox1.TabIndex = 6;
@@ -114,7 +114,7 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 24;
-            this.listBox2.Location = new System.Drawing.Point(646, 395);
+            this.listBox2.Location = new System.Drawing.Point(936, 387);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(219, 244);
             this.listBox2.TabIndex = 7;
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 663);
+            this.ClientSize = new System.Drawing.Size(1191, 663);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label3);

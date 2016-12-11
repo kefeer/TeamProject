@@ -35,16 +35,18 @@ namespace View
                 dataGridView1.Rows[i].Cells[3].Value = book.Year;
                 dataGridView1.Rows[i].Cells[4].Value = book.Department;
                 if (book.IsOwned)
-                    dataGridView1.Rows[0].Cells[5].Value = "Yes";
-                else
-                    dataGridView1.Rows[0].Cells[5].Value = "No";
-                i++;
-
-                if (book.dateMustBeReturned.Value < DateTime.Now)
                 {
-                    book.IsOutdated = true;
-                    Initializer.db.SaveChanges();
+                    dataGridView1.Rows[0].Cells[5].Value = "Yes";
+                    if (book.dateMustBeReturned.Value < DateTime.Now)
+                    {
+                        book.IsOutdated = true;
+                        Initializer.db.SaveChanges();
+                    }
                 }
+                else
+                    dataGridView1.Rows[i].Cells[5].Value = "No";
+                i++;
+               
 
             }
         }

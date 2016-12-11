@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Globalization;
+using System.IO;
 using Controller.Models;
 
 namespace Controller
@@ -16,16 +18,33 @@ namespace Controller
 
         public void Seed()
         {
-            Books.Add(new Book
+            using (FileStream fs = new FileStream(@"..\..\..\Books.csv", FileMode.Open))
             {
-                Name = "Cat's cradle",
-                Author = "Kurt Wonnengut",
-                Genre = "Science fiction",
-                IsOutdated = false,
-                IsOwned = false,
-                Year = "1963"
-            });
-            SaveChanges();
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    string str;
+                    string[] temp;
+                    sr.ReadLine();
+
+                    while ((str = sr.ReadLine()) != null)
+                    {
+                        temp = str.Split(';');
+
+                        var book = new Book
+                        {
+                            Name = temp[0],
+                            Author = temp[1],
+                            Genre = temp[2],
+                            Year = temp[3],
+                            Department = temp[4]
+                        };
+
+                        Books.Add(book);
+                        this.SaveChanges();
+                    }
+
+                }
+            }
         }
     }
 }
