@@ -16,7 +16,11 @@ namespace Controller
         public DbSet<Reader> Readers { get; set; }
         public DbSet<Librarian> Librarians { get; set; }
 
-        public void Seed()
+    }
+
+    public class MyInitializer : DropCreateDatabaseAlways<Context>
+    {
+        protected override void Seed(Context context)
         {
             using (FileStream fs = new FileStream(@"..\..\..\Books.csv", FileMode.Open))
             {
@@ -39,12 +43,13 @@ namespace Controller
                             Department = temp[4]
                         };
 
-                        Books.Add(book);
-                        this.SaveChanges();
+                        context.Books.Add(book);
+                        context.SaveChanges();
                     }
 
                 }
             }
+            base.Seed(context);
         }
     }
 }

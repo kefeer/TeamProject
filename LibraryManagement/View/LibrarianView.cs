@@ -63,6 +63,7 @@ namespace View
 
         private void LibrarianView_FormClosing(object sender, FormClosingEventArgs e)
         {
+            mainForm.ShowBooks();
             mainForm.Visible = true;
         }
 
@@ -172,6 +173,8 @@ namespace View
 
         private void findBookButton_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+                return;
             if (radioButton1.Checked)
             {
                 dataGridView2.Rows.Clear();
@@ -180,7 +183,6 @@ namespace View
                 {
                     if (book.Name.ToLower().Contains(textBox1.Text.ToLower()))
                     {
-                        dataGridView2.Rows.Clear();
                         dataGridView2.Rows.Add();
                         dataGridView2.Rows[i].Cells[0].Value = book.Name;
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;
@@ -198,6 +200,8 @@ namespace View
                             dataGridView2.Rows[i].Cells[5].Value = "Yes";
                         else
                             dataGridView2.Rows[i].Cells[5].Value = "No";
+                        i++;
+
                     }
                 }
             }
@@ -210,7 +214,6 @@ namespace View
                 {
                     if (book.Author.ToLower().Contains(textBox1.Text.ToLower()))
                     {
-                        dataGridView2.Rows.Clear();
                         dataGridView2.Rows.Add();
                         dataGridView2.Rows[i].Cells[0].Value = book.Name;
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;
@@ -241,7 +244,6 @@ namespace View
                 {
                     if (book.Genre.ToLower().Contains(textBox1.Text.ToLower()))
                     {
-                        dataGridView2.Rows.Clear();
                         dataGridView2.Rows.Add();
                         dataGridView2.Rows[i].Cells[0].Value = book.Name;
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;

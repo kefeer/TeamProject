@@ -44,6 +44,7 @@ namespace View
 
         private void ReaderView_FormClosed(object sender, FormClosedEventArgs e)
         {
+            mainForm.ShowBooks();
             mainForm.Visible = true;
         }
     }
