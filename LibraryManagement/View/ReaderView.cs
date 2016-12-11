@@ -20,8 +20,6 @@ namespace View
         private void ReaderView_Load(object sender, EventArgs e)
         {
             int i = 0;
-            int j = 0;
-            int k = 0;
 
             foreach (var book in reader.BooksOwned)
             {
@@ -34,15 +32,11 @@ namespace View
                 if ((book.dateMustBeReturned.Value -
                     DateTime.Now).TotalDays <= 2 )
                 {
-                    dataGridView2.Rows.Add();
-                    dataGridView2.Rows[j].Cells[0].Value = book.Name;
-                    j++;
+                    listBox1.Items.Add(book.Name);
                 }
                 if (book.IsOutdated)
                 {
-                    dataGridView3.Rows.Add();
-                    dataGridView3.Rows[k].Cells[0].Value = book.Name;
-                    k++;
+                    listBox2.Items.Add(book.Name);
                 }
 
             }
@@ -50,7 +44,7 @@ namespace View
 
         private void ReaderView_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mainForm.Dispose();
+            mainForm.Visible = true;
         }
     }
 }

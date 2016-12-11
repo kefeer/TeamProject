@@ -63,7 +63,7 @@ namespace View
 
         private void LibrarianView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainForm.Dispose();
+            mainForm.Visible = true;
         }
 
         private void showDetailsButton_Click(object sender, EventArgs e)
@@ -308,6 +308,12 @@ namespace View
             MessageBox.Show("Your account has successfully been removed!");
             this.Close();
             mainForm.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            mainForm.Visible = true;
+            this.Close();
         }
     }
 }
