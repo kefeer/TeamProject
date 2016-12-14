@@ -16,6 +16,7 @@ namespace View
             InitializeComponent();
             Reader = reader;
         }
+
         private void ReaderDetailsForm_Load(object sender, EventArgs e)
         {
             nameLabel.Text = Reader.Name;
@@ -25,11 +26,10 @@ namespace View
             emailLabel.Text = Reader.Email;
             usernameLabel.Text = Reader.Username;
 
-            if (Reader.BooksOwned != null)
-            {
-               ShowBooks();
-            }
+
+            ShowBooks();
         }
+
         private void deleteReaderButton_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Are you sure you want to delete " +
@@ -44,11 +44,15 @@ namespace View
         {
             dataGridView1.Rows.Clear();
             int i = 0;
-            foreach (var book in Reader.BooksOwned)
+            foreach (var book in Initializer.db.BooksReaders)
             {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = book.Name;
-                i++;
+                if (book.ReaderID == Reader.ID)
+                {
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[i].Cells[0].Value =
+                        Initializer.db.Books.SingleOrDefault(c => c.ID == book.BookID).Name;
+                    i++;
+                }
             }
         }
 
@@ -72,22 +76,24 @@ namespace View
                 return;
             }
 
-            
-            Reader.BooksOwned.Remove(
-                Initializer.db.Books.SingleOrDefault(c => c.Name == name));
-            Initializer.db.Books.SingleOrDefault(c => c.Name == name).IsOwned = false;
+
+            var bookID = Initializer.db.Books.SingleOrDefault(k => k.Name == name).ID;
+
+            Initializer.db.BooksReaders.Remove(Initializer.db.
+                BooksReaders.SingleOrDefault(c => c.ReaderID == Reader.ID &
+                c.BookID == bookID));
+   
+
+
             Initializer.db.Books.SingleOrDefault(c => c.Name == name).IsOutdated = false;
+           
+
+            Initializer.db.Books.SingleOrDefault(c => c.Name == name).NumberInStock++;
             Initializer.db.SaveChanges();
 
             MessageBox.Show("The book has successfully been removed!");
 
-            dataGridView1.Rows.Clear();
-            int i = 0;
-            foreach (var book in Reader.BooksOwned)
-            {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = book.Name;
-            }
+            ShowBooks();
         }
     }
 }

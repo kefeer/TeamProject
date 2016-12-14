@@ -45,14 +45,18 @@ namespace View
                 dataGridView2.Rows[i].Cells[1].Value = book.Author;
                 dataGridView2.Rows[i].Cells[2].Value = book.Genre;
                 dataGridView2.Rows[i].Cells[3].Value = book.Department;
-                if (book.IsOwned)
+                dataGridView2.Rows[i].Cells[4].Value = book.NumberInStock;
+                foreach (var temp in Initializer.db.BooksReaders)
                 {
-                    dataGridView2.Rows[i].Cells[4].Value = "Yes";
-                    dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
-                                                           book.Reader.Surname;
+                    if (book.ID == temp.BookID)
+                    {
+                        var reader = Initializer.db.Readers.SingleOrDefault(c =>
+                            c.ID == temp.ReaderID);
+                        dataGridView2.Rows[i].Cells[6].Value = reader.Name +
+                                                               " " + reader.Surname;
+
+                    }
                 }
-                else
-                    dataGridView2.Rows[i].Cells[4].Value = "No";
                 if (book.IsOutdated)
                     dataGridView2.Rows[i].Cells[5].Value = "Yes";
                 else
@@ -188,14 +192,18 @@ namespace View
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;
                         dataGridView2.Rows[i].Cells[2].Value = book.Genre;
                         dataGridView2.Rows[i].Cells[3].Value = book.Department;
-                        if (book.IsOwned)
+                        dataGridView2.Rows[i].Cells[4].Value = book.NumberInStock;
+                        foreach (var temp in Initializer.db.BooksReaders)
                         {
-                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
-                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
-                                                           book.Reader.Surname;
+                            if (book.ID == temp.BookID)
+                            {
+                                var reader = Initializer.db.Readers.SingleOrDefault(c =>
+                                    c.ID == temp.ReaderID);
+                                dataGridView2.Rows[i].Cells[6].Value = reader.Name +
+                                                                       " " + reader.Surname;
+
+                            }
                         }
-                        else
-                            dataGridView2.Rows[i].Cells[4].Value = "No";
                         if (book.IsOutdated)
                             dataGridView2.Rows[i].Cells[5].Value = "Yes";
                         else
@@ -219,14 +227,18 @@ namespace View
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;
                         dataGridView2.Rows[i].Cells[2].Value = book.Genre;
                         dataGridView2.Rows[i].Cells[3].Value = book.Department;
-                        if (book.IsOwned)
+                        dataGridView2.Rows[i].Cells[4].Value = book.NumberInStock;
+                        foreach (var temp in Initializer.db.BooksReaders)
                         {
-                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
-                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
-                                                           book.Reader.Surname;
+                            if (book.ID == temp.BookID)
+                            {
+                                var reader = Initializer.db.Readers.SingleOrDefault(c =>
+                                    c.ID == temp.ReaderID);
+                                dataGridView2.Rows[i].Cells[6].Value = reader.Name +
+                                                                       " " + reader.Surname;
+
+                            }
                         }
-                        else
-                            dataGridView2.Rows[i].Cells[4].Value = "No";
                         if (book.IsOutdated)
                             dataGridView2.Rows[i].Cells[5].Value = "Yes";
                         else
@@ -249,14 +261,18 @@ namespace View
                         dataGridView2.Rows[i].Cells[1].Value = book.Author;
                         dataGridView2.Rows[i].Cells[2].Value = book.Genre;
                         dataGridView2.Rows[i].Cells[3].Value = book.Department;
-                        if (book.IsOwned)
+                        dataGridView2.Rows[i].Cells[4].Value = book.NumberInStock;
+                        foreach (var temp in Initializer.db.BooksReaders)
                         {
-                            dataGridView2.Rows[i].Cells[4].Value = "Yes";
-                            dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
-                                                           book.Reader.Surname;
+                            if (book.ID == temp.BookID)
+                            {
+                                var reader = Initializer.db.Readers.SingleOrDefault(c =>
+                                    c.ID == temp.ReaderID);
+                                dataGridView2.Rows[i].Cells[6].Value = reader.Name +
+                                                                       " " + reader.Surname;
+
+                            }
                         }
-                        else
-                            dataGridView2.Rows[i].Cells[4].Value = "No";
                         if (book.IsOutdated)
                             dataGridView2.Rows[i].Cells[5].Value = "Yes";
                         else
@@ -280,14 +296,18 @@ namespace View
                     dataGridView2.Rows[i].Cells[1].Value = book.Author;
                     dataGridView2.Rows[i].Cells[2].Value = book.Genre;
                     dataGridView2.Rows[i].Cells[3].Value = book.Department;
-                    if (book.IsOwned)
+                    dataGridView2.Rows[i].Cells[4].Value = book.NumberInStock;
+                    foreach (var temp in Initializer.db.BooksReaders)
                     {
-                        dataGridView2.Rows[i].Cells[4].Value = "Yes";
-                        dataGridView2.Rows[i].Cells[6].Value = book.Reader.Name + " " +
-                                                               book.Reader.Surname;
+                        if (book.ID == temp.BookID)
+                        {
+                            var reader = Initializer.db.Readers.SingleOrDefault(c =>
+                                c.ID == temp.ReaderID);
+                            dataGridView2.Rows[i].Cells[6].Value = reader.Name +
+                                                                   " " + reader.Surname;
+
+                        }
                     }
-                    else
-                        dataGridView2.Rows[i].Cells[4].Value = "No";
                     if (book.IsOutdated)
                         dataGridView2.Rows[i].Cells[5].Value = "Yes";
                     else
@@ -306,10 +326,11 @@ namespace View
             {
                 Initializer.db.Librarians.Remove(librarian);
                 Initializer.db.SaveChanges();
+
+                MessageBox.Show("Your account has successfully been removed!");
+                this.Close();
+                mainForm.Show();
             }
-            MessageBox.Show("Your account has successfully been removed!");
-            this.Close();
-            mainForm.Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -15,6 +15,7 @@ namespace Controller
         public DbSet<Book> Books { get; set; }
         public DbSet<Reader> Readers { get; set; }
         public DbSet<Librarian> Librarians { get; set; }
+        public DbSet<BookReader> BooksReaders { get; set; }
 
     }
 
@@ -40,7 +41,9 @@ namespace Controller
                             Author = temp[1],
                             Genre = temp[2],
                             Year = temp[3],
-                            Department = temp[4]
+                            Department = temp[4],
+                            NumberInStock = int.Parse(temp[5])
+                            
                         };
 
                         context.Books.Add(book);

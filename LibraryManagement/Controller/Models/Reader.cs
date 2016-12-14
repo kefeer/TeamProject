@@ -6,11 +6,9 @@ namespace Controller.Models
 {
     public class Reader
     {
-        public Reader()
-        {
-            BooksOwned = new List<Book>();
-        }
+      
         [Key]
+        public int ID { get; set; }
         public string Name { get; set; }
 
         public string Surname { get; set; }
@@ -19,6 +17,6 @@ namespace Controller.Models
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public List<Book> BooksOwned { get; set; }
+     
     }
 }

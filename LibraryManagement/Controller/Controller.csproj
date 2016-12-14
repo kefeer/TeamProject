@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookReader.cs" />
     <Compile Include="Models\Librarian.cs" />
     <Compile Include="Models\Reader.cs" />
     <Compile Include="Initializer.cs" />

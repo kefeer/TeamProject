@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 using Controller;
@@ -9,6 +10,7 @@ namespace View
     public partial class AddBookToReaderForm : Form
     {
         public Reader Reader;
+
         public AddBookToReaderForm(Reader reader)
         {
             InitializeComponent();
@@ -33,38 +35,48 @@ namespace View
             var book = Initializer.db.Books.SingleOrDefault(c => c.Name == textBox1.Text);
             if (book != null)
             {
-                book.IsOwned = true;
-                book.dateGiven = DateTime.Now;
-                Reader.BooksOwned.Add(book);
-                
+                TimeSpan timeSpan = new TimeSpan();
+                if (book.NumberInStock < 1)
+                {
+                    MessageBox.Show("There are no such books available!");
+                    return;
+                }
+               
+
 
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
-                        book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(7, 0, 0, 0);
+                        timeSpan = new TimeSpan(7, 0, 0, 0);
                         break;
                     case 1:
-                        book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(14, 0, 0, 0);
+                        timeSpan = new TimeSpan(14, 0, 0, 0);
                         break;
                     case 2:
-                        book.dateMustBeReturned = book.dateGiven +
-                                                  new TimeSpan(21, 0, 0, 0);
+                        timeSpan = new TimeSpan(21, 0, 0, 0);
                         break;
                 }
-                
+                var bookreader = new BookReader
+                {
+                    BookID = book.ID,
+                    ReaderID = Reader.ID,
+                    DateTaken = DateTime.Now,
+                    DateMustBeReturned = DateTime.Now + timeSpan
+                };
+
+                Initializer.db.BooksReaders.Add(bookreader);
+
                 Initializer.db.SaveChanges();
                 MessageBox.Show("Book has successfully been added to reader!");
-                this.Close();
+                this.Dispose();
             }
             else
             {
                 MessageBox.Show("There's no such book in the database!");
-                this.Close();
+                this.Dispose();
             }
         }
 
-      
+
     }
 }

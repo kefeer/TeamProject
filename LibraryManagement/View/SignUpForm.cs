@@ -29,7 +29,7 @@ namespace View
                 MessageBox.Show("Surname field is required!");
                 return;
             }
-            if (textBox4.Text == "")
+            if (maskedTextBox2.Text == "")
             {
                 MessageBox.Show("Telephone number field is required!");
                 return;
@@ -58,8 +58,8 @@ namespace View
                 {
                     Name = textBox1.Text,
                     Surname = textBox2.Text,
-                    DateOfBirth = textBox3.Text,
-                    TelephoneNumber = textBox4.Text,
+                    DateOfBirth = maskedTextBox1.Text,
+                    TelephoneNumber = maskedTextBox2.Text,
                     Email = textBox5.Text,
                     Username = textBox6.Text,
                     Password = textBox7.Text
@@ -83,8 +83,8 @@ namespace View
                 {
                     Name = textBox1.Text,
                     Surname = textBox2.Text,
-                    DateOfBirth = textBox3.Text,
-                    TelephoneNumber = textBox4.Text,
+                    DateOfBirth = maskedTextBox1.Text,
+                    TelephoneNumber = maskedTextBox2.Text,
                     Email = textBox5.Text,
                     Username = textBox6.Text,
                     Password = textBox7.Text

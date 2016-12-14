@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Controller;
 
@@ -11,18 +12,28 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
+           
         }
+
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
             Initializer.Main();
-            ShowBooks();
+
+            GreetingsForm greetingsForm = new GreetingsForm();
+            greetingsForm.ShowDialog();
+
             mainForm = this;
-            
+            ShowBooks();
+
         }
 
         public void ShowBooks()
         {
+
             dataGridView1.Rows.Clear();
 
             int i = 0;
@@ -33,21 +44,20 @@ namespace View
                 dataGridView1.Rows[i].Cells[1].Value = book.Author;
                 dataGridView1.Rows[i].Cells[2].Value = book.Genre;
                 dataGridView1.Rows[i].Cells[3].Value = book.Year;
-                dataGridView1.Rows[i].Cells[4].Value = book.Department;
-                if (book.IsOwned)
-                {
-                    dataGridView1.Rows[0].Cells[5].Value = "Yes";
-                    if (book.dateMustBeReturned.Value < DateTime.Now)
-                    {
-                        book.IsOutdated = true;
-                        Initializer.db.SaveChanges();
-                    }
-                }
-                else
-                    dataGridView1.Rows[i].Cells[5].Value = "No";
-                i++;
-               
+                dataGridView1.Rows[i].Cells[4].Value = book.NumberInStock;
+                dataGridView1.Rows[i].Cells[5].Value = book.Department;
 
+
+                //foreach (var deadline in book.DatesDeadline)
+                //{
+                //    if (deadline.Value < DateTime.Now)
+                //    {
+                //        book.IsOutdated = true;
+                //        Initializer.db.SaveChanges();
+                //    }
+                //}
+
+                i++;
             }
         }
 
@@ -81,11 +91,8 @@ namespace View
                         dataGridView1.Rows[i].Cells[1].Value = book.Author;
                         dataGridView1.Rows[i].Cells[2].Value = book.Genre;
                         dataGridView1.Rows[i].Cells[3].Value = book.Year;
-                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
-                        if(book.IsOwned)
-                            dataGridView1.Rows[i].Cells[5].Value = "Yes";
-                        else
-                            dataGridView1.Rows[i].Cells[5].Value = "No";
+                        dataGridView1.Rows[i].Cells[4].Value = book.NumberInStock;
+                        dataGridView1.Rows[i].Cells[5].Value = book.Department;
                         i++;
                     }
                 }
@@ -104,11 +111,9 @@ namespace View
                         dataGridView1.Rows[i].Cells[1].Value = book.Genre;
                         dataGridView1.Rows[i].Cells[2].Value = book.Author;
                         dataGridView1.Rows[i].Cells[3].Value = book.Year;
-                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
-                        if (book.IsOwned)
-                            dataGridView1.Rows[i].Cells[5].Value = "Yes";
-                        else
-                            dataGridView1.Rows[i].Cells[5].Value = "No";
+                        dataGridView1.Rows[i].Cells[4].Value = book.NumberInStock;
+                        dataGridView1.Rows[i].Cells[5].Value = book.Department;
+                       
                         i++;
                     }
                 }
@@ -127,11 +132,9 @@ namespace View
                         dataGridView1.Rows[i].Cells[1].Value = book.Genre;
                         dataGridView1.Rows[i].Cells[2].Value = book.Author;
                         dataGridView1.Rows[i].Cells[3].Value  = book.Year;
-                        dataGridView1.Rows[i].Cells[4].Value = book.Department;
-                        if (book.IsOwned)
-                            dataGridView1.Rows[i].Cells[5].Value = "Yes";
-                        else
-                            dataGridView1.Rows[i].Cells[5].Value = "No";
+                        dataGridView1.Rows[i].Cells[4].Value = book.NumberInStock;
+                        dataGridView1.Rows[i].Cells[5].Value = book.Department;
+                        
                         i++;
                     }
                 }
@@ -142,6 +145,11 @@ namespace View
         {
             if (textBox1.Text == "")
                 ShowBooks();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Initializer.db.SaveChanges();
         }
     }
 }
