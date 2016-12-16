@@ -46,8 +46,7 @@
             // 
             // GreetingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1101, 747);
             this.Controls.Add(this.button1);
