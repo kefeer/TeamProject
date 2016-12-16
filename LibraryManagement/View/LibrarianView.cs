@@ -16,7 +16,7 @@ namespace View
             InitializeComponent();
             mainForm = mainform;
             this.librarian = librarian;
-            
+
         }
 
         private void LibrarianView_Load(object sender, EventArgs e)
@@ -359,11 +359,22 @@ namespace View
                 MessageBox.Show("Please, choose book's row!");
                 return;
             }
-            
+
             var book = Initializer.db.Books.SingleOrDefault(
                 c => c.Name == name);
             BookDetailsForm form = new BookDetailsForm(book);
             form.ShowDialog();
         }
+
+        private void LibrarianView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox2.Focused)
+                if (e.KeyChar == (char)Keys.Enter)
+                findReaderButton_Click(sender, e);
+            if (textBox1.Focused)
+                if (e.KeyChar == (char)Keys.Enter)
+                    findBookButton_Click(sender, e);
+        }
+
     }
 }

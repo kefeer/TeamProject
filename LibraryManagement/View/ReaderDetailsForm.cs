@@ -35,9 +35,23 @@ namespace View
             var dialogResult = MessageBox.Show("Are you sure you want to delete " +
                                                "this reader?", "Are you sure?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
+            {
+                foreach (var bookReader in Initializer.db.BooksReaders)
+                {
+                    if (bookReader.ReaderID == Reader.ID)
+                    {
+                        var book = Initializer.db.Books.SingleOrDefault(c => c.ID == bookReader.BookID);
+                        book.NumberInStock++;
+                        book.IsOutdated = false;
+                        Initializer.db.Entry(book).State = System.Data.Entity.EntityState.Modified;
+                        Initializer.db.BooksReaders.Remove(bookReader);
+                    }
+                }
                 Initializer.db.Readers.Remove(Reader);
-            Initializer.db.SaveChanges();
-
+                Initializer.db.SaveChanges();
+                MessageBox.Show(Reader.Name + " " + Reader.Surname + " has successully been deleted!");
+                this.Dispose();
+            }
         }
 
         private void ShowBooks()
@@ -80,7 +94,7 @@ namespace View
             var bookID = Initializer.db.Books.SingleOrDefault(k => k.Name == name).ID;
 
             Initializer.db.BooksReaders.Remove(Initializer.db.
-                BooksReaders.SingleOrDefault(c => c.ReaderID == Reader.ID &
+                BooksReaders.First(c => c.ReaderID == Reader.ID &
                 c.BookID == bookID));
    
 

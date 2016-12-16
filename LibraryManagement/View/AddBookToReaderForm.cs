@@ -36,14 +36,15 @@ namespace View
             if (book != null)
             {
                 TimeSpan timeSpan = new TimeSpan();
+
+                book.NumberInStock--;
+                Initializer.db.Entry(book).State = EntityState.Modified;
                 if (book.NumberInStock < 1)
                 {
                     MessageBox.Show("There are no such books available!");
                     return;
                 }
                
-
-
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
