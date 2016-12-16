@@ -33,6 +33,13 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showDetailsButton = new System.Windows.Forms.Button();
             this.addBookButton = new System.Windows.Forms.Button();
             this.deleteBookButton = new System.Windows.Forms.Button();
@@ -51,13 +58,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkAccountDelete = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -118,6 +124,48 @@
             this.dataGridView2.Size = new System.Drawing.Size(930, 460);
             this.dataGridView2.TabIndex = 1;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Author";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Genre";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Department";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Number Available";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Outdated";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Last reader";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // showDetailsButton
             // 
             this.showDetailsButton.Location = new System.Drawing.Point(127, 729);
@@ -130,7 +178,7 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.Location = new System.Drawing.Point(755, 729);
+            this.addBookButton.Location = new System.Drawing.Point(638, 729);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.Size = new System.Drawing.Size(189, 45);
             this.addBookButton.TabIndex = 4;
@@ -140,7 +188,7 @@
             // 
             // deleteBookButton
             // 
-            this.deleteBookButton.Location = new System.Drawing.Point(950, 729);
+            this.deleteBookButton.Location = new System.Drawing.Point(1038, 729);
             this.deleteBookButton.Name = "deleteBookButton";
             this.deleteBookButton.Size = new System.Drawing.Size(198, 45);
             this.deleteBookButton.TabIndex = 5;
@@ -284,12 +332,12 @@
             // linkAccountDelete
             // 
             this.linkAccountDelete.AutoSize = true;
-            this.linkAccountDelete.Location = new System.Drawing.Point(1242, 787);
+            this.linkAccountDelete.Location = new System.Drawing.Point(1277, 787);
             this.linkAccountDelete.Name = "linkAccountDelete";
-            this.linkAccountDelete.Size = new System.Drawing.Size(174, 25);
+            this.linkAccountDelete.Size = new System.Drawing.Size(139, 25);
             this.linkAccountDelete.TabIndex = 15;
             this.linkAccountDelete.TabStop = true;
-            this.linkAccountDelete.Text = "delete this account";
+            this.linkAccountDelete.Text = "delete account";
             this.linkAccountDelete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAccountDelete_LinkClicked);
             // 
             // linkLabel1
@@ -303,53 +351,73 @@
             this.linkLabel1.Text = "Log out";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // Column3
+            // label3
             // 
-            this.Column3.HeaderText = "Name";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 25);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Name: ";
             // 
-            // Column4
+            // label4
             // 
-            this.Column4.HeaderText = "Author";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 25);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Username: ";
             // 
-            // Column5
+            // label5
             // 
-            this.Column5.HeaderText = "Genre";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(172, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 25);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "label5";
             // 
-            // Column10
+            // label6
             // 
-            this.Column10.HeaderText = "Department";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(172, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 25);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "label6";
             // 
-            // Column11
+            // button1
             // 
-            this.Column11.HeaderText = "Number Available";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
+            this.button1.Location = new System.Drawing.Point(833, 729);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Show book\'s info";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Column7
+            // label7
             // 
-            this.Column7.HeaderText = "Outdated";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Reader";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Baskerville Old Face", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(495, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(449, 45);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Librarian\'s control screen";
             // 
             // LibrarianView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1428, 821);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkAccountDelete);
             this.Controls.Add(this.panel2);
@@ -359,6 +427,7 @@
             this.Controls.Add(this.showDetailsButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LibrarianView";
@@ -408,5 +477,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
     }
 }

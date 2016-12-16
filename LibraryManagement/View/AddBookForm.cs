@@ -35,7 +35,7 @@ namespace View
 
             if (textBox1.Text == "" || textBox2.Text == "" ||
                 textBox3.Text == "" || textBox4.Text == "" ||
-                textBox5.Text == "")
+                textBox5.Text == "" || maskedTextBox1.Text == "")
             {
                 MessageBox.Show("All fields must be filled!");
                 return;
@@ -47,7 +47,9 @@ namespace View
                 Author = textBox2.Text,
                 Genre =  textBox3.Text,
                 Year = textBox4.Text,
-                Department = textBox5.Text
+                Department = textBox5.Text,
+                NumberInStock = int.Parse(maskedTextBox1.Text)
+
             });
             Initializer.db.SaveChanges();
             this.Dispose();

@@ -16,11 +16,14 @@ namespace View
             InitializeComponent();
             mainForm = mainform;
             this.librarian = librarian;
+            
         }
 
         private void LibrarianView_Load(object sender, EventArgs e)
         {
             FillData();
+            label5.Text = librarian.Name + " " + librarian.Surname;
+            label6.Text = librarian.Username;
         }
 
         private void FillData()
@@ -108,6 +111,11 @@ namespace View
                     var book = Initializer.db.Books.SingleOrDefault(
                         c => c.Name == name);
                     Initializer.db.Books.Remove(book);
+                    foreach (var bookReader in Initializer.db.BooksReaders)
+                    {
+                        if (book.ID == bookReader.BookID)
+                            Initializer.db.BooksReaders.Remove(bookReader);
+                    }
                     Initializer.db.SaveChanges();
                 }
                 catch
@@ -337,6 +345,25 @@ namespace View
         {
             mainForm.Visible = true;
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = "";
+            try
+            {
+                name = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Please, choose book's row!");
+                return;
+            }
+            
+            var book = Initializer.db.Books.SingleOrDefault(
+                c => c.Name == name);
+            BookDetailsForm form = new BookDetailsForm(book);
+            form.ShowDialog();
         }
     }
 }
