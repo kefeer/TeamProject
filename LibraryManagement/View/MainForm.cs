@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using Controller;
 
@@ -48,14 +48,20 @@ namespace View
                 dataGridView1.Rows[i].Cells[5].Value = book.Department;
 
 
-                //foreach (var deadline in book.DatesDeadline)
-                //{
-                //    if (deadline.Value < DateTime.Now)
-                //    {
-                //        book.IsOutdated = true;
-                //        Initializer.db.SaveChanges();
-                //    }
-                //}
+                foreach (var bookReader in Initializer.db.BooksReaders)
+                {
+                    if (bookReader.DateMustBeReturned < DateTime.Now)
+                    {
+                        var tempBook = Initializer.db.Books.SingleOrDefault(c =>
+                            c.ID == bookReader.BookID);
+                        tempBook.IsOutdated = true;
+
+                        Initializer.db.Entry(tempBook).State = EntityState.Modified;
+                        Initializer.db.SaveChanges();
+                    }
+                }
+
+              
 
                 i++;
             }
